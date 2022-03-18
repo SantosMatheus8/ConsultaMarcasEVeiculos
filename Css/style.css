@@ -1,0 +1,37 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo
+{
+    width: 16rem;
+    height: 4rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.cabecalho
+{
+    background-color: rgb(232, 232, 232);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.imgPessoa
+{
+    width: 17rem;
+    height: 19rem;
+    margin-right: 3rem;
+}
+
+.imgTexto
+{
+    width: 21rem;
+    height: 7rem;
+    margin-left: 3rem;
+}
