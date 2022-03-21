@@ -113,10 +113,11 @@ main
 }
 
 
-.accordion > ul > li
+.accordion > ul > li, .accordion > ul > li > a
 {
     padding: 0.4rem;
     color : rgb(40, 99, 138);
+    text-decoration: none;
 }
 
 
