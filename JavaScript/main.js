@@ -48,7 +48,7 @@ function mudaCoreSetaCaminhao()
 }
 
 botaoCaminhao.addEventListener('click', () =>
-{
+{   
         listaCaminhao.classList.toggle('ativaAccordion')
 })
 
