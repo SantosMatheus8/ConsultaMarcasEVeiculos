@@ -19,7 +19,7 @@ function adicionaLinha(marca)
 {
     let iten = document.createElement("li")
     iten.setAttribute("value", marca.codigo)
-    iten.addEventListener('click', () => escolheMarca(event))
+    iten.addEventListener('click', escolheMarca)
     iten.innerHTML = marca.nome        
 
     return iten
@@ -30,18 +30,17 @@ function main(url,lista)
     let data = pegaApi(url)
     let marcas = JSON.parse(data)
 
-
     marcas.forEach(element => {
         let iten = adicionaLinha(element)
         lista.appendChild(iten)
     });
 }
 
-function escolheMarca(event)
+function escolheMarca(evento)
 {
-    let marcaClicada = event.target.value
+    let marcaClicada = evento.target.value
 
-    let elemento = event.target.parentNode
+    let elemento = evento.target.parentNode
     let nomeId = elemento.getAttribute("id") 
     //nomeId --> É o nome do id do pai do elemento clicado, ex : carros
     //marcaClicada --> pega o código da marca clicada
@@ -53,22 +52,39 @@ function escolheMarca(event)
      let marcas = JSON.parse(data)
      let tam = marcas.modelos.length
 
-    for(let i = 0; i < tam; i++)
+     let vet = []
+     for(let i = 0; i < tam; i++)
     {
-        console.log(marcas.modelos[i].nome)
+        vet[i] = (marcas.modelos[i].nome)
+    }
+    vet.sort()
+
+    let tam2 = vet.length
+
+    let novaLista = document.createElement("ul")
+
+    for(let i = tam2 - 1; i >= 0; i--)
+    {
+        let novoIten = document.createElement("li")
+        novoIten.innerHTML = vet[i]
+        novoIten.classList.add("carro")
+        novaLista.appendChild(novoIten)
     }
 
+    
+    evento.target.appendChild(novaLista)
+    evento.target.addEventListener("click", removeVeiculos)
 
 }
 
-function aux(marcas)
+function removeVeiculos(evento) //Não permite que mostre a lista de veiculos mais de uma vez
 {
-    console.log(marcas.modelos[1].nome)
-    marcas.forEach(element => {
-       element.modelos
-    });
+    let liApagar = evento.target.children[0] //Lista a ser apagada
+    liApagar.parentNode.removeChild(liApagar)    
 }
 
 main(urlCarros, listaCarros)
 main(urlMotos, listaMotos)
 main(urlCaminhoes, listaCaminhoes)
+
+
