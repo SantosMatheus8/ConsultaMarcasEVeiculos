@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Navbar e cabecalho */
@@ -16,7 +17,7 @@
 
 .cabecalho
 {
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(241, 241, 241);
     display: flex;
     justify-content: center;
     align-items: center;

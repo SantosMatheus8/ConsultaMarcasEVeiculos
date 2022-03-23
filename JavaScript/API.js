@@ -30,7 +30,15 @@ function main(url,lista)
     let data = pegaApi(url)
     let marcas = JSON.parse(data)
 
-    marcas.forEach(element => {
+    let tam = marcas.length
+    let vet = []
+    for(let i = 0; i < tam; i++)
+    {
+        vet[i] = (marcas[i])
+    }
+    vet.sort()
+
+    vet.forEach(element => {
         let iten = adicionaLinha(element)
         lista.appendChild(iten)
     });
@@ -45,15 +53,15 @@ function escolheMarca(evento)
     //nomeId --> É o nome do id do pai do elemento clicado, ex : carros
     //marcaClicada --> pega o código da marca clicada
 
-     url = `https://parallelum.com.br/fipe/api/v1/${nomeId}/marcas/${marcaClicada}/modelos`
+    url = `https://parallelum.com.br/fipe/api/v1/${nomeId}/marcas/${marcaClicada}/modelos`
 
 
-     let data = pegaApi(url)
-     let marcas = JSON.parse(data)
-     let tam = marcas.modelos.length
+    let data = pegaApi(url)
+    let marcas = JSON.parse(data)
+    let tam = marcas.modelos.length
 
-     let vet = []
-     for(let i = 0; i < tam; i++)
+    let vet = []
+    for(let i = 0; i < tam; i++)
     {
         vet[i] = (marcas.modelos[i].nome)
     }
